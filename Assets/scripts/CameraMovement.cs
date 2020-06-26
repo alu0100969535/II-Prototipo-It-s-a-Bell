@@ -4,40 +4,26 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float movementSpeed = 10.0f;
-    public float rotationSpeed = 100.0f;
-
-    //Axis - configure in Unity > Exit > Project Settings
-    public string verticalAxisName = "Vertical";
-    public string horizontalAxisName = "Horizontal";
-    //Values
-    public float VerticalAxis;
-    public float HorizontalAxis;
-
-   /* void Start()
+  public float sensitivity = 500.0f;
+  
+  public GameObject player;
+  Rigidbody m_Rigidbody; 
+  
+    // Start is called before the first frame update
+    void Start()
     {
-    }*/
+        player = transform.parent.gameObject;
+        m_Rigidbody = player.GetComponent<Rigidbody>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        VerticalAxis = Input.GetAxis(verticalAxisName);
-        HorizontalAxis = Input.GetAxis(horizontalAxisName);
-        /*  Vertical axis: W-S (Forward, backward)
-         *  Horizontal axis: A-D (Left, Right)
-         */
-        float vertical = VerticalAxis * movementSpeed * Time.deltaTime;
-        float horizontal = HorizontalAxis * movementSpeed * Time.deltaTime;
-        this.transform.Translate(horizontal, 0, vertical);
+        float rotateHorizontal = Input.GetAxis("Mouse X");
+        float rotateVertical = Input.GetAxis("Mouse Y");
+        float speed = rotateHorizontal * sensitivity * Time.deltaTime;
 
-        /*  For rotation we consider Q and E to rotate from vertical axis (y);
-         *  Q for Left rotation and E for Right rotation.
-         *  Both pressed at the same time equals to 0 degree rotation
-         */
-        float rotationLeft = Input.GetKey(KeyCode.Q) ? -rotationSpeed * Time.deltaTime : 0;
-        float rotationRight = Input.GetKey(KeyCode.E) ? rotationSpeed * Time.deltaTime : 0;
-        float rotationTotal = rotationLeft + rotationRight;
-
-        this.transform.Rotate(0, rotationTotal, 0);
-
+        Quaternion deltaRotation = Quaternion.Euler(new Vector3(0, speed, 0));
+        m_Rigidbody.MoveRotation(m_Rigidbody.rotation * deltaRotation);
     }
 }
