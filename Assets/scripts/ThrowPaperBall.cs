@@ -5,9 +5,11 @@ using UnityEngine;
 public class ThrowPaperBall : MonoBehaviour
 {
 
-    public float thrust = 15.0f;
+    public float thrust = 30.0f;
     private Rigidbody ballRigidBody;
     public GameObject originalBall;
+
+    public float xOffset = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,7 @@ public class ThrowPaperBall : MonoBehaviour
             Transform transf = GetComponent<Transform>();
 
             // Copia de la bola que se crea en frente del protagonista
-            GameObject newBall = Instantiate(originalBall, new Vector3(transf.position.x + 1 * Mathf.Sin(transf.rotation.eulerAngles.y * Mathf.Deg2Rad), transf.position.y + 0.8f, transf.position.z + 1 * Mathf.Cos(transf.rotation.eulerAngles.y * Mathf.Deg2Rad)), Quaternion.identity);
+            GameObject newBall = Instantiate(originalBall, new Vector3(transf.position.x + xOffset + 0.4f * Mathf.Sin(transf.rotation.eulerAngles.y * Mathf.Deg2Rad), transf.position.y + 0.8f, transf.position.z + 0.4f * Mathf.Cos(transf.rotation.eulerAngles.y * Mathf.Deg2Rad)), Quaternion.identity);
 
             ballRigidBody = newBall.GetComponent<Rigidbody>();
 
