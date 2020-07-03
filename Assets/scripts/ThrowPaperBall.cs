@@ -9,13 +9,20 @@ public class ThrowPaperBall : MonoBehaviour
     private Rigidbody ballRigidBody;
     public GameObject originalBall;
 
+    private Animator anim;
+
+    public float distanciaAlCuerpo = 0.4f;
+    public float alturaDesdeSuelo = 0.8f;
     public float xOffset = 0.5f;
+
+    public float secondsUntilThrow = 0.25f;
 
     // Start is called before the first frame update
     void Start()
     {
         // Bola que se va a clonar para lanzarse
         originalBall = GameObject.Find("paper_low");
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,16 +33,25 @@ public class ThrowPaperBall : MonoBehaviour
             Transform transf = GetComponent<Transform>();
 
             // Copia de la bola que se crea en frente del protagonista
-            GameObject newBall = Instantiate(originalBall, new Vector3(transf.position.x + xOffset + 0.4f * Mathf.Sin(transf.rotation.eulerAngles.y * Mathf.Deg2Rad), transf.position.y + 0.8f, transf.position.z + 0.4f * Mathf.Cos(transf.rotation.eulerAngles.y * Mathf.Deg2Rad)), Quaternion.identity);
+            
 
-            ballRigidBody = newBall.GetComponent<Rigidbody>();
-
-            // Lanzamiento de la bola hacia donde mira el personaje
-
-            float direccionX = Mathf.Sin(transf.rotation.eulerAngles.y * Mathf.Deg2Rad);
-            float direccionZ = Mathf.Cos(transf.rotation.eulerAngles.y * Mathf.Deg2Rad);
-
-            ballRigidBody.AddForce(thrust * direccionX, 0, thrust * direccionZ, ForceMode.Impulse);
+            anim.SetTrigger("Throwing");
+            StartCoroutine(wait(secondsUntilThrow,transf));
         }
+    }
+
+    IEnumerator wait(float seconds,Transform origen)
+    {
+        yield return new WaitForSeconds(seconds);
+        GameObject newBall = Instantiate(originalBall, new Vector3(origen.position.x +  distanciaAlCuerpo * Mathf.Sin(origen.rotation.eulerAngles.y * Mathf.Deg2Rad), origen.position.y + alturaDesdeSuelo, origen.position.z + distanciaAlCuerpo * Mathf.Cos(origen.rotation.eulerAngles.y * Mathf.Deg2Rad)), Quaternion.identity);
+        newBall.transform.Translate(new Vector3(xOffset, 0, 0));
+        ballRigidBody = newBall.GetComponent<Rigidbody>();
+
+        // Lanzamiento de la bola hacia donde mira el personaje
+
+        float direccionX = Mathf.Sin(origen.rotation.eulerAngles.y * Mathf.Deg2Rad);
+        float direccionZ = Mathf.Cos(origen.rotation.eulerAngles.y * Mathf.Deg2Rad);
+        ballRigidBody.AddForce(thrust * direccionX, 0, thrust * direccionZ, ForceMode.Impulse);
+
     }
 }

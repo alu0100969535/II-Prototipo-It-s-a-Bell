@@ -374,7 +374,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 30
   originalBall: {fileID: 0}
+  distanciaAlCuerpo: 0.4
+  alturaDesdeSuelo: 0.8
   xOffset: 0.5
+  secondsUntilThrow: 0.4
 --- !u!1001 &436705742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1179,7 +1182,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
