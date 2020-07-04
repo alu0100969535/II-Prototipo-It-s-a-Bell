@@ -7,7 +7,9 @@ public class RotateTeacher : MonoBehaviour
 
     private Animator anim;
     public bool facingBoard = true;
-
+    private bool rotating = false;
+    public float secondsToWait = 2.0f;
+    public float probabilityToRotateEveryFrame = 0.01f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +20,22 @@ public class RotateTeacher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int rnd = Random.Range(0, 5);
-        if (rnd == 0)
+        if (!rotating)
         {
-            anim.SetTrigger("Rotate");
+            int rnd = Random.Range(0, 500);
+            Debug.Log("rnd " + rnd);
+            if (rnd == 0)
+            {
+                anim.SetTrigger("Rotate");
+                rotating = true;
+                StartCoroutine(wait(secondsToWait));
+            }
         }
-        if (anim.GetBool("Rotate"))
-        {
-            anim.SetTrigger("Rotate");
-        }
+    }
+
+    IEnumerator wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        rotating = false;
     }
 }
