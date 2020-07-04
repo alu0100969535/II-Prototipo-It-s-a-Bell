@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86e5621d72622c4b8f19fec5c727475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadMovimiento: 60
+  velocidadMovimiento: 100
   velocidadGiro: 200
   x: 0
   y: 0
@@ -416,8 +416,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 30
   originalBall: {fileID: 0}
-  distanciaAlCuerpo: 0.4
-  alturaDesdeSuelo: 0.8
+  distanciaAlCuerpo: 0.1
+  alturaDesdeSuelo: 1
   xOffset: 0
   secondsUntilThrow: 0.25
 --- !u!1001 &436705742
@@ -811,6 +811,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652871180704134564, guid: a1cc9b1121802d7438167d42fef9d13a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2983
+      objectReference: {fileID: 0}
+    - target: {fileID: 652871180704134564, guid: a1cc9b1121802d7438167d42fef9d13a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2983
+      objectReference: {fileID: 0}
+    - target: {fileID: 652871180704134564, guid: a1cc9b1121802d7438167d42fef9d13a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2983
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cc9b1121802d7438167d42fef9d13a, type: 3}
