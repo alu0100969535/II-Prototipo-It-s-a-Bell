@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrowPaperBall : MonoBehaviour
+public class ThrowObject : MonoBehaviour
 {
 
     public float thrust = 30.0f;
     private Rigidbody ballRigidBody;
-    public GameObject originalBall;
+    public GameObject objectPrefab;
 
     private Animator anim;
 
@@ -20,8 +20,6 @@ public class ThrowPaperBall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Bola que se va a clonar para lanzarse
-        originalBall = GameObject.Find("paper_low");
         anim = GetComponent<Animator>();
     }
 
@@ -43,7 +41,7 @@ public class ThrowPaperBall : MonoBehaviour
     IEnumerator wait(float seconds,Transform origen)
     {
         yield return new WaitForSeconds(seconds);
-        GameObject newBall = Instantiate(originalBall, new Vector3(origen.position.x +  distanciaAlCuerpo * Mathf.Sin(origen.rotation.eulerAngles.y * Mathf.Deg2Rad), origen.position.y + alturaDesdeSuelo, origen.position.z + distanciaAlCuerpo * Mathf.Cos(origen.rotation.eulerAngles.y * Mathf.Deg2Rad)), Quaternion.identity);
+        GameObject newBall = Instantiate(objectPrefab, new Vector3(origen.position.x +  distanciaAlCuerpo * Mathf.Sin(origen.rotation.eulerAngles.y * Mathf.Deg2Rad), origen.position.y + alturaDesdeSuelo, origen.position.z + distanciaAlCuerpo * Mathf.Cos(origen.rotation.eulerAngles.y * Mathf.Deg2Rad)), Quaternion.identity);
         newBall.transform.Translate(new Vector3(xOffset, 0, 0));
         ballRigidBody = newBall.GetComponent<Rigidbody>();
 

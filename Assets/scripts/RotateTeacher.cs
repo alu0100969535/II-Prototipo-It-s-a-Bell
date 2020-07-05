@@ -22,8 +22,7 @@ public class RotateTeacher : MonoBehaviour
     {
         if (!rotating)
         {
-            int rnd = Random.Range(0, 500);
-            Debug.Log("rnd " + rnd);
+            int rnd = Random.Range(0, (int)(1f/ probabilityToRotateEveryFrame));
             if (rnd == 0)
             {
                 anim.SetTrigger("Rotate");
