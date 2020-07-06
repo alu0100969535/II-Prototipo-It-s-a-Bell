@@ -11,6 +11,8 @@ public class ThrowObject : MonoBehaviour
     private Rigidbody ballRigidBody;
     public GameObject objectPrefab;
 
+    public GameObject VRCamera;
+
     private Animator anim;
 
     public float distanciaAlCuerpo = 0.4f;
@@ -50,7 +52,7 @@ public class ThrowObject : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(sonidoLanzamiento);
         }
 
-        GameObject newBall = Instantiate(objectPrefab, new Vector3(origen.position.x +  distanciaAlCuerpo * Mathf.Sin(origen.rotation.eulerAngles.y * Mathf.Deg2Rad), origen.position.y + alturaDesdeSuelo, origen.position.z + distanciaAlCuerpo * Mathf.Cos(origen.rotation.eulerAngles.y * Mathf.Deg2Rad)), Quaternion.identity);
+        GameObject newBall = Instantiate(objectPrefab, new Vector3(origen.position.x +  distanciaAlCuerpo * Mathf.Sin(origen.rotation.eulerAngles.y * Mathf.Deg2Rad), origen.position.y + alturaDesdeSuelo, origen.position.z + distanciaAlCuerpo * Mathf.Cos(origen.rotation.eulerAngles.y * Mathf.Deg2Rad)), VRCamera.transform.rotation);
         newBall.transform.Translate(new Vector3(xOffset, 0, 0));
         ballRigidBody = newBall.GetComponent<Rigidbody>();
 
