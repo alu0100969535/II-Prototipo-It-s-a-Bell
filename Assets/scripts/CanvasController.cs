@@ -8,6 +8,7 @@ public class CanvasController : MonoBehaviour
     private GameObject gameplay;
     private GameObject gameOver;
     private GameObject youWin;
+    private GameObject menu;
 
     private GameObject player;
 
@@ -15,19 +16,36 @@ public class CanvasController : MonoBehaviour
     public AudioClip onLose;
     public AudioClip onWin;
 
+    private bool inMenu = true;
+
     public int enemies = 6;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         gameplay = gameObject.transform.Find("Gameplay").gameObject;
+        menu = gameObject.transform.Find("Menu").gameObject;
         gameOver = gameObject.transform.Find("GameOver").gameObject;
         youWin = gameObject.transform.Find("YouWin").gameObject;
         audioSource = GameObject.Find("EventSystem").GetComponent<AudioSource>();
         player = GameObject.FindWithTag("Player");
+        player.GetComponent<ThrowObject>().toggleShooting(); //Player can't shoot in menu
         //onLose and onWin must be initialized in Editor
     }
 
+    private void Update() {
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && inMenu) {
+            gameplay.SetActive(true);
+            menu.SetActive(false);
+            player.GetComponent<ThrowObject>().toggleShooting();
+            startBackgroundMusic();
+            inMenu = false;
+        }
+    }
+
+    private void startBackgroundMusic() {
+        audioSource.Play();
+    }
     private void stopBackgroundMusic() {
         audioSource.Stop();
     }
