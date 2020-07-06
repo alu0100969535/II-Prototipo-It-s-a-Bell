@@ -17841,7 +17841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 613703952}
   m_Layer: 0
-  m_Name: GameObject (6)
+  m_Name: Camera Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18321,11 +18321,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86e5621d72622c4b8f19fec5c727475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadMovimiento: 5000
+  velocidadMovimiento: 3000
   velocidadGiro: 200
   HorizontalAxis: 0
   VerticalAxis: 0
   camera: {fileID: 255120611}
+  cameraRig: {fileID: 613703951}
   alturaCamara: 1.01
   distanciaAlCuerpo: 0.45
 --- !u!114 &646232109

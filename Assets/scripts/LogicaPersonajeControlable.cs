@@ -10,6 +10,7 @@ public class LogicaPersonajeControlable : MonoBehaviour
     public float HorizontalAxis;
     public float VerticalAxis;
     public GameObject camera;
+    public GameObject cameraRig;
 
     public float alturaCamara = 0.79f;
     public float distanciaAlCuerpo = 0.2f;
@@ -56,7 +57,7 @@ public class LogicaPersonajeControlable : MonoBehaviour
         //this.transform.Translate(horizontal, 0, vertical);
         GetComponent<Rigidbody>().AddRelativeForce(horizontal, z, vertical);
 
-        camera.transform.position = new Vector3(transform.position.x + distanciaAlCuerpo * Mathf.Sin(transform.rotation.eulerAngles.y * Mathf.Deg2Rad), transform.position.y + alturaCamara, transform.position.z + distanciaAlCuerpo * Mathf.Cos(transform.rotation.eulerAngles.y * Mathf.Deg2Rad));
+        cameraRig.transform.position = new Vector3(transform.position.x + distanciaAlCuerpo * Mathf.Sin(transform.rotation.eulerAngles.y * Mathf.Deg2Rad), transform.position.y + alturaCamara, transform.position.z + distanciaAlCuerpo * Mathf.Cos(transform.rotation.eulerAngles.y * Mathf.Deg2Rad));
         //GetComponent<Rigidbody>().AddForce(velocidadMovimiento * direccionX, 0, velocidadMovimiento * direccionZ, ForceMode.Impulse);
 
         // Enviamos las variables x e y al animador para ver que animación ejecutar.
