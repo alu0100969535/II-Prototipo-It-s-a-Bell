@@ -5895,8 +5895,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadMovimiento: 100
   velocidadGiro: 200
-  x: 0
-  y: 0
+  HorizontalAxis: 0
+  VerticalAxis: 0
+  camera: {fileID: 0}
+  alturaCamara: 0.79
+  ejeZCamara: -0.03999739
 --- !u!54 &406680557
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25137,6 +25140,10 @@ PrefabInstance:
     - target: {fileID: 1144978573833690, guid: 1e8e1924bb442334c9125455634bb567, type: 3}
       propertyPath: m_Name
       value: MobileMaleFree1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144978573833690, guid: 1e8e1924bb442334c9125455634bb567, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4089856833718764, guid: 1e8e1924bb442334c9125455634bb567, type: 3}
       propertyPath: m_LocalRotation.y
