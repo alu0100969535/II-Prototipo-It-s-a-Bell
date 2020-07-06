@@ -12,7 +12,7 @@ public class LogicaPersonajeControlable : MonoBehaviour
     public GameObject camera;
 
     public float alturaCamara = 0.79f;
-    public float ejeZCamara = -0.03999739f;
+    public float distanciaAlCuerpo = 0.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +43,7 @@ public class LogicaPersonajeControlable : MonoBehaviour
         //camera.transform.rotation = new Quaternion(0, 0, 0, 1);
         //transform.Translate(0, 0, y * Time.deltaTime * velocidadMovimiento);
         /*
-        float direccionXForwarwd = Mathf.Sin(transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
-        float direccionZForward = Mathf.Cos(transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
+        
         GetComponent<Rigidbody>().AddForce(y * Time.deltaTime * velocidadMovimiento * direccionX, 0, y * Time.deltaTime * velocidadMovimiento * direccionZ, ForceMode.Impulse);
 
         float direccionXSideways = Mathf.Sin(transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
@@ -57,7 +56,7 @@ public class LogicaPersonajeControlable : MonoBehaviour
         //this.transform.Translate(horizontal, 0, vertical);
         GetComponent<Rigidbody>().AddRelativeForce(horizontal, z, vertical);
 
-        camera.transform.position = new Vector3(transform.position.x, transform.position.y + alturaCamara, transform.position.z + ejeZCamara);
+        camera.transform.position = new Vector3(transform.position.x + distanciaAlCuerpo * Mathf.Sin(transform.rotation.eulerAngles.y * Mathf.Deg2Rad), transform.position.y + alturaCamara, transform.position.z + distanciaAlCuerpo * Mathf.Cos(transform.rotation.eulerAngles.y * Mathf.Deg2Rad));
         //GetComponent<Rigidbody>().AddForce(velocidadMovimiento * direccionX, 0, velocidadMovimiento * direccionZ, ForceMode.Impulse);
 
         // Enviamos las variables x e y al animador para ver que animación ejecutar.

@@ -8291,7 +8291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613703951}
   m_LocalRotation: {x: -0, y: -0, z: 3.5527133e-15, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 255120612}
@@ -8762,8 +8762,8 @@ MonoBehaviour:
   HorizontalAxis: 0
   VerticalAxis: 0
   camera: {fileID: 255120611}
-  alturaCamara: 1.15
-  ejeZCamara: -0.03999739
+  alturaCamara: 1.01
+  distanciaAlCuerpo: 0.45
 --- !u!114 &646232109
 MonoBehaviour:
   m_ObjectHideFlags: 0
