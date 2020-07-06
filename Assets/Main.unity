@@ -9616,8 +9616,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255120611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.854, z: 0}
-  m_LocalScale: {x: 0.7266751, y: 0.7266752, z: 0.7266751}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 567146593}
   m_Father: {fileID: 613703952}
@@ -17377,7 +17377,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569565016}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 801233833}
@@ -17386,7 +17386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -315, y: 147}
+  m_AnchoredPosition: {x: -172, y: 164}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &569565018
@@ -17421,7 +17421,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: GAME OVER
+  m_Text: "GAME \nOVER"
 --- !u!222 &569565019
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17854,9 +17854,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613703951}
-  m_LocalRotation: {x: -0, y: -0, z: 3.5527133e-15, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.26}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.854, z: 0}
+  m_LocalScale: {x: 0.7266751, y: 0.7266752, z: 0.7266751}
   m_Children:
   - {fileID: 255120612}
   m_Father: {fileID: 75202133}
@@ -18327,8 +18327,8 @@ MonoBehaviour:
   VerticalAxis: 0
   camera: {fileID: 255120611}
   cameraRig: {fileID: 613703951}
-  alturaCamara: 1.01
-  distanciaAlCuerpo: 0.45
+  alturaCamara: 1.22
+  distanciaAlCuerpo: 0.34
 --- !u!114 &646232109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18469,7 +18469,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5406361
+  m_Radius: 0.51166314
   m_Height: 1.0812722
   m_Direction: 2
   m_Center: {x: 0, y: 0.54063594, z: 0}
@@ -21210,7 +21210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801233832}
   m_LocalRotation: {x: 0.00000008940697, y: -0.000000029802322, z: 0.83944476, w: 0.5434451}
-  m_LocalPosition: {x: 226, y: -229, z: -49}
+  m_LocalPosition: {x: 114, y: -284, z: -49}
   m_LocalScale: {x: 490.98932, y: 490.98932, z: 490.98935}
   m_Children: []
   m_Father: {fileID: 569565017}
@@ -23407,7 +23407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066835117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 575, y: -19, z: -45}
+  m_LocalPosition: {x: 1, y: -220, z: -45}
   m_LocalScale: {x: 490.98932, y: 490.98932, z: 490.98935}
   m_Children: []
   m_Father: {fileID: 1279271547}
@@ -26109,7 +26109,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279271546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1066835118}
@@ -26118,7 +26118,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -315, y: 147}
+  m_AnchoredPosition: {x: -10, y: 171}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1279271548
@@ -26147,13 +26147,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 102
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: YOU WIN!!!
+  m_Text: "YOU \nWIN!!!"
 --- !u!222 &1279271549
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27901,7 +27901,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 255120617}
-  m_PlaneDistance: 0.15
+  m_PlaneDistance: 0.18
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -35419,7 +35419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1622305809
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40751,7 +40751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1660964477
 RectTransform:
   m_ObjectHideFlags: 0
