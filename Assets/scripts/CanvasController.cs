@@ -9,6 +9,8 @@ public class CanvasController : MonoBehaviour
     private GameObject gameOver;
     private GameObject youWin;
 
+    private GameObject player;
+
     private AudioSource audioSource;
     public AudioClip onLose;
     public AudioClip onWin;
@@ -22,6 +24,7 @@ public class CanvasController : MonoBehaviour
         gameOver = gameObject.transform.Find("GameOver").gameObject;
         youWin = gameObject.transform.Find("YouWin").gameObject;
         audioSource = GameObject.Find("EventSystem").GetComponent<AudioSource>();
+        player = GameObject.FindWithTag("Player");
         //onLose and onWin must be initialized in Editor
     }
 
@@ -48,6 +51,7 @@ public class CanvasController : MonoBehaviour
     }
 
     public void setYouWin() {
+        player.GetComponent<ThrowObject>().toggleShooting();
         gameplay.SetActive(false);
         youWin.SetActive(true);
         stopBackgroundMusic();
