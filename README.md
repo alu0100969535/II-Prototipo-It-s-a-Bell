@@ -5,6 +5,11 @@
 Esta aplicación ha sido desarrollada en Unity y está optimizada para su uso con Google Cardboard.
 Se puede utilizar un controlador inalámbrico para controlar al personaje principal.
 
+
+## Especificación base
+
+![Miniproyecto](https://github.com/alu0100913033/InterfacesInteligentes/blob/master/Miniproyecto/README.md)
+
 ## Hitos
 
 - [x] Modelos de los personajes
@@ -32,6 +37,8 @@ Ofrece seguimiento de cabeza y es compatible con controlador externo.
 ![](img/editor.aula.PNG)
 
 ## Acta de los acuerdos del grupo respecto al trabajo en equipo
+
+Tablón de tareas: [Trello](https://trello.com/b/JBc1Nq8R/its-a-bell)
 
 ### Tareas de Felipe:
 
