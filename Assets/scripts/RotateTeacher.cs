@@ -7,34 +7,33 @@ public class RotateTeacher : MonoBehaviour
 
     private Animator anim;
     public bool facingBoard = true;
-    private bool rotating = false;
-    public float secondsToWait = 2.0f;
-    public float probabilityToRotateEveryFrame = 0.01f;
+    public float secondsToWait = 1.0f;
+    public float probabilityToRotateEverySecond = 0.01f;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        facingBoard = anim.GetBool("Rotate");
+
+        StartCoroutine(wait(secondsToWait));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!rotating)
-        {
-            int rnd = Random.Range(0, (int)(1f/ probabilityToRotateEveryFrame));
-            if (rnd == 0)
-            {
-                anim.SetTrigger("Rotate");
-                rotating = true;
-                StartCoroutine(wait(secondsToWait));
-            }
-        }
     }
 
     IEnumerator wait(float seconds)
     {
-        yield return new WaitForSeconds(seconds);
-        rotating = false;
+        while (true)
+        {
+            int rnd = Random.Range(0, (int)(1f / probabilityToRotateEverySecond));
+            if (rnd == 0)
+            {
+                anim.SetTrigger("Rotate");
+                facingBoard = !(facingBoard);
+                yield return new WaitForSeconds(2);
+            }
+            yield return new WaitForSeconds(1);
+        }
     }
 }

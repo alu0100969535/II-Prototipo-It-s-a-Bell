@@ -14,6 +14,7 @@ public class ThrowObject : MonoBehaviour
     public float distanciaAlCuerpo = 0.4f;
     public float alturaDesdeSuelo = 0.8f;
     public float xOffset = 0.5f;
+    public AudioClip sonidoLanzamiento;
 
     public float secondsUntilThrow = 0.25f;
 
@@ -26,7 +27,7 @@ public class ThrowObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
             Transform transf = GetComponent<Transform>();
 
@@ -41,6 +42,12 @@ public class ThrowObject : MonoBehaviour
     IEnumerator wait(float seconds,Transform origen)
     {
         yield return new WaitForSeconds(seconds);
+
+        if(sonidoLanzamiento != null)
+        {
+            GetComponent<AudioSource>().PlayOneShot(sonidoLanzamiento);
+        }
+
         GameObject newBall = Instantiate(objectPrefab, new Vector3(origen.position.x +  distanciaAlCuerpo * Mathf.Sin(origen.rotation.eulerAngles.y * Mathf.Deg2Rad), origen.position.y + alturaDesdeSuelo, origen.position.z + distanciaAlCuerpo * Mathf.Cos(origen.rotation.eulerAngles.y * Mathf.Deg2Rad)), Quaternion.identity);
         newBall.transform.Translate(new Vector3(xOffset, 0, 0));
         ballRigidBody = newBall.GetComponent<Rigidbody>();

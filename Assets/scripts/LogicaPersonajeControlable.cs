@@ -41,4 +41,6 @@ public class LogicaPersonajeControlable : MonoBehaviour
         anim.SetFloat("VelX", x);
         anim.SetFloat("VelY", y);
     }
+
+    
 }

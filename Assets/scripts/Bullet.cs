@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float bulletLifetime = 5.0f;
+
+    public float damage = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    void DestroyBullet()
+    void DestroyBullet(float bulletLifetime)
     {
-        Destroy(gameObject);
+        Destroy(gameObject, bulletLifetime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("EnemyCollider"))
         {
-            other.SendMessage("DamageTaken");
+            DestroyBullet(0);
+            (other.gameObject).transform.parent.SendMessage("DamageTaken", damage);
         }
+
+        DestroyBullet(bulletLifetime);
     }
 }
