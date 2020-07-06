@@ -19,14 +19,11 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, bulletLifetime);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("EnemyCollider"))
-        {
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.collider.CompareTag("EnemyCollider")) {
             DestroyBullet(0);
-            (other.gameObject).transform.parent.SendMessage("DamageTaken", damage);
+            collision.collider.gameObject.transform.parent.SendMessage("DamageTaken", damage);
         }
-
         DestroyBullet(bulletLifetime);
     }
 }
