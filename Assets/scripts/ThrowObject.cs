@@ -60,7 +60,7 @@ public class ThrowObject : MonoBehaviour
 
         float direccionX = Mathf.Sin(origen.rotation.eulerAngles.y * Mathf.Deg2Rad);
         float direccionZ = Mathf.Cos(origen.rotation.eulerAngles.y * Mathf.Deg2Rad);
-        ballRigidBody.AddForce(0, 0, thrust, ForceMode.Impulse);
+        ballRigidBody.AddForce(thrust * direccionX, 0, thrust * direccionZ, ForceMode.Impulse);
 
     }
 
