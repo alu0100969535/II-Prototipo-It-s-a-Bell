@@ -23,7 +23,13 @@ Ofrece seguimiento de cabeza y es compatible con controlador externo.
 
 ## Gif animado de ejecución
 
--- Grabar --
+![](img/gameplay.gif)
+
+## Imagenes de la aplicación
+
+![](img/menu%20inicio.PNG)
+![](img/editor.escena.PNG)
+![](img/editor.aula.PNG)
 
 ## Acta de los acuerdos del grupo respecto al trabajo en equipo
 
