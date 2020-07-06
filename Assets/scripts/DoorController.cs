@@ -10,9 +10,16 @@ public class DoorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameEvents.controller.eventHandler += onDoorInteraction;
         animator = gameObject.transform.parent.GetComponent<Animator>();
     }
 
+    private void onDoorInteraction(GameObject target) {
+        if(target == gameObject) {
+            isOpen = !isOpen;
+            animator.Play(isOpen ? "open" : "close");    
+        }
+    }
     public void onDoorInteraction() {
         isOpen = !isOpen;
         animator.Play(isOpen ? "open" : "close");    
