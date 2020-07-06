@@ -5852,6 +5852,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1545080053}
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   currentHealth: 3
 --- !u!4 &406680555 stripped
 Transform:
@@ -24371,7 +24382,7 @@ MonoBehaviour:
   damageToPlayer: 1
   invulnerabilitySeconds: 1
   sonidoEnfado: {fileID: 8300000, guid: 42d70a97b14135d4eb09c7856100572b, type: 3}
-  sonidoCampana: {fileID: 0}
+  sonidoCampana: {fileID: 8300000, guid: f1af895f1ccff6e41a8f29e19836bd4e, type: 3}
 --- !u!82 &1545080053
 AudioSource:
   m_ObjectHideFlags: 0
