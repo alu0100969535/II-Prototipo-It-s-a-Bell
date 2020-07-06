@@ -23,7 +23,7 @@ public class CanvasController : MonoBehaviour
         gameOver.SetActive(true);
     }
 
-        public void setYouWin() {
+    public void setYouWin() {
         gameplay.SetActive(false);
         youWin.SetActive(true);
     }

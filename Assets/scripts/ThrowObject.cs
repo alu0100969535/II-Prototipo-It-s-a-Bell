@@ -5,6 +5,8 @@ using UnityEngine;
 public class ThrowObject : MonoBehaviour
 {
 
+
+    private bool ableToThrow = true;
     public float thrust = 30.0f;
     private Rigidbody ballRigidBody;
     public GameObject objectPrefab;
@@ -27,7 +29,7 @@ public class ThrowObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button0))
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && ableToThrow)
         {
             Transform transf = GetComponent<Transform>();
 
@@ -58,5 +60,9 @@ public class ThrowObject : MonoBehaviour
         float direccionZ = Mathf.Cos(origen.rotation.eulerAngles.y * Mathf.Deg2Rad);
         ballRigidBody.AddForce(thrust * direccionX, 0, thrust * direccionZ, ForceMode.Impulse);
 
+    }
+
+    public void toggleShooting(){
+        ableToThrow = !ableToThrow;
     }
 }
