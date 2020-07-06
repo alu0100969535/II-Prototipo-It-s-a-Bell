@@ -8,7 +8,7 @@ Se puede utilizar un controlador inalámbrico para controlar al personaje princi
 
 ## Especificación base
 
-![Miniproyecto](https://github.com/alu0100913033/InterfacesInteligentes/blob/master/Miniproyecto/README.md)
+[Miniproyecto](https://github.com/alu0100913033/InterfacesInteligentes/blob/master/Miniproyecto/README.md)
 
 ## Hitos
 
