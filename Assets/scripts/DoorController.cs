@@ -14,12 +14,16 @@ public class DoorController : MonoBehaviour
         animator = gameObject.transform.parent.GetComponent<Animator>();
     }
 
+    //Ejecuta la animación necessaria dependiendo de si pone la puerta en su sitio o la abre
+    // si es el target indicado
     private void onDoorInteraction(GameObject target) {
         if(target == gameObject) {
             isOpen = !isOpen;
             animator.Play(isOpen ? "open" : "close");    
         }
     }
+
+    //Ejecuta la animación necessaria dependiendo de si pone la puerta en su sitio o la abre
     public void onDoorInteraction() {
         isOpen = !isOpen;
         animator.Play(isOpen ? "open" : "close");    

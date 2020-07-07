@@ -18,6 +18,8 @@ public class RigidbodyMovement : MonoBehaviour
 
     public Rigidbody rigidbody;
 
+    //Movimiento de un objeto rígido usado para testeo en fases tempranas de desarrollo
+
     void Start() {
       rigidbody = GetComponent<Rigidbody>();
     }
@@ -33,17 +35,8 @@ public class RigidbodyMovement : MonoBehaviour
         float vertical = VerticalAxis * movementSpeed * Time.deltaTime;
         float horizontal = HorizontalAxis * movementSpeed * Time.deltaTime;
         float z = ZAxis * jumpSpeed * Time.deltaTime;
-        //this.transform.Translate(horizontal, 0, vertical);
+        
         rigidbody.AddRelativeForce(horizontal, z, vertical);
-        /*  For rotation we consider Q and E to rotate from vertical axis (y);
-         *  Q for Left rotation and E for Right rotation.
-         *  Both pressed at the same time equals to 0 degree rotation
-         */
-       /* float rotationLeft = Input.GetKey(KeyCode.Q) ? -rotationSpeed * Time.deltaTime : 0;
-        float rotationRight = Input.GetKey(KeyCode.E) ? rotationSpeed * Time.deltaTime : 0;
-        float rotationTotal = rotationLeft + rotationRight;
-
-        this.transform.Rotate(0, rotationTotal, 0);*/
 
     }
 }

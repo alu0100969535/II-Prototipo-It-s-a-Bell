@@ -9,6 +9,8 @@ public class CameraMovement : MonoBehaviour
   public GameObject player;
   Rigidbody m_Rigidbody; 
   
+    //Código usado en las primeras fases de desarrollo
+
     // Start is called before the first frame update
     void Start()
     {

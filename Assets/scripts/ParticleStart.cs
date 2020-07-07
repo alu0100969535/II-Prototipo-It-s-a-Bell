@@ -8,6 +8,8 @@ public class ParticleStart : MonoBehaviour
     public ParticleSystem hit;
     public GameObject g;
 
+    //Reproducción de partículas cuando se golpea al gameObject
+
     // Start is called before the first frame update
     void Start()
     {

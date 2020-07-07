@@ -33,6 +33,7 @@ public class CanvasController : MonoBehaviour
         //onLose and onWin must be initialized in Editor
     }
 
+    //Espera a la tecla indicada para iniciar el juego
     private void Update() {
         if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && inMenu) {
             gameplay.SetActive(true);
@@ -43,17 +44,22 @@ public class CanvasController : MonoBehaviour
         }
     }
 
+    //Inicia la música de fondo
     private void startBackgroundMusic() {
         audioSource.Play();
     }
+
+    //Para la musica de fondo
     private void stopBackgroundMusic() {
         audioSource.Stop();
     }
 
+    //Reproduce el clip pasado por parámetro
     private void setMusic(AudioClip clip) {
         audioSource.PlayOneShot(clip);
     }
 
+    //Cambia al panel de Game Over
     public void setGameOver() {
         gameplay.SetActive(false);
         gameOver.SetActive(true);
@@ -61,6 +67,7 @@ public class CanvasController : MonoBehaviour
         setMusic(onLose);
     }
 
+    //Cuando mueren todos los enemigos cambia a panel de victoria
     public void onEnemyDead(){
         enemies--;
         if(enemies == 0) {
@@ -68,6 +75,7 @@ public class CanvasController : MonoBehaviour
         }
     }
 
+    //Cambia al panel de You Win
     public void setYouWin() {
         player.GetComponent<ThrowObject>().toggleShooting();
         gameplay.SetActive(false);

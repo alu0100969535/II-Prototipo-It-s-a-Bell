@@ -26,11 +26,14 @@ public class RotateTeacher : MonoBehaviour
     {
         while (true)
         {
+
+            // Cada segundo se decide de forma aleatoria si la profesora va a girar o no
             int rnd = Random.Range(0, (int)(1f / probabilityToRotateEverySecond));
             if (rnd == 0)
             {
                 anim.SetTrigger("Rotate");
                 facingBoard = !(facingBoard);
+                // Se esperan 2 segundos para que termine de hacerse la animación
                 yield return new WaitForSeconds(2);
             }
             yield return new WaitForSeconds(1);

@@ -5,6 +5,8 @@ using UnityEngine;
 public class collision : MonoBehaviour
 {
 
+    //Código usado para debugear usado en la fase de desarrollo
+
     public GameObject g;
     // Start is called before the first frame update
     void Start() {

@@ -24,26 +24,30 @@ public class EventManager : MonoBehaviour
     {
         Health.OnDamaged -= HandleOnDamaged;
     }
+
+    //Función suscrita al delegado del script Health
     void HandleOnDamaged (GameObject go)
     {
+        //Si se ha hecho daño a un objeto mientras la profesora miraba se pierde una vida
         if (!watcher.GetComponent<RotateTeacher>().facingBoard)
         {
             if (!invulnerable)
             {
                 invulnerable = true;
+                //El jugador cuenta con un rango de invulnerabilidad despues de perder una vida
                 StartCoroutine(damagePlayer(invulnerabilitySeconds));
                 
             }
-            //player.GetComponent<UnityEngine.UI.Text>().text = (int.Parse(lifeCount.GetComponent<UnityEngine.UI.Text>().text) - 1).ToString();
         }
     }
 
     IEnumerator damagePlayer(float invulnerabilitySeconds)
     {
-
+        //El jugador pierde una vida
         player.SendMessage("DamageTaken", damageToPlayer);
         watcher.GetComponent<Animator>().SetTrigger("Angry");
 
+        //Se reproducen los sonidos de enfado de la profesora y de pérdida de vida
         if (sonidoEnfado != null)
             watcher.GetComponent<AudioSource>().PlayOneShot(sonidoEnfado);
 

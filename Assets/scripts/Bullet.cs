@@ -19,6 +19,8 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, bulletLifetime);
     }
 
+    //Cuando la bala colisiona mira si es un enemigo o no, si lo es desaparece para evitar colisionar 
+    //multiples veces y si no lo es se queda unos segundos antes de desaparecer
     private void OnCollisionEnter(Collision collision) {
         if(collision.collider.CompareTag("EnemyCollider")) {
             DestroyBullet(0);

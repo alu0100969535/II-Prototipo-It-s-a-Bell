@@ -12,6 +12,9 @@ public class ChairController : MonoBehaviour
         GameEvents.controller.eventHandler += onChairInteraction;
         animator = GetComponent<Animator>();
     }
+
+    //Ejecuta la animación necessaria dependiendo de si pone la silla en su sitio o la echa atrás
+    // si es el target indicado
     private void onChairInteraction(GameObject target) {
         if(target == gameObject) {
             isIn = !isIn;
@@ -19,6 +22,7 @@ public class ChairController : MonoBehaviour
         }
     }
 
+    //Ejecuta la animación necessaria dependiendo de si pone la silla en su sitio o la echa atrás
     public void onChairInteraction() {
         isIn = !isIn;
         animator.Play(isIn ? "chairIn" : "chairOut");

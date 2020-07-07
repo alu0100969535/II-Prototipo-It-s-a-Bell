@@ -10,6 +10,8 @@ public class GameEvents : MonoBehaviour
 
     public float maxDistance = 3.0f;
 
+    // Delegado usado para saber a que objeto mira la retícula e interactuar con ese objeto
+
     private void Awake() {
         if(controller == null){
             controller = this;

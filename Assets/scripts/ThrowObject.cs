@@ -17,7 +17,6 @@ public class ThrowObject : MonoBehaviour
 
     public float distanciaAlCuerpo = 0.4f;
     public float alturaDesdeSuelo = 0.8f;
-    public float xOffset = 0.5f;
     public AudioClip sonidoLanzamiento;
 
     public float secondsUntilThrow = 0.25f;
@@ -34,11 +33,10 @@ public class ThrowObject : MonoBehaviour
         if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && ableToThrow)
         {
             Transform transf = GetComponent<Transform>();
-
-            // Copia de la bola que se crea en frente del protagonista
             
-
+            //Empieza la animación
             anim.SetTrigger("Throwing");
+            //En la corutina esperamos un instante a lanzar el objeto para que encaje con la animación
             StartCoroutine(wait(secondsUntilThrow,transf));
         }
     }
@@ -47,23 +45,25 @@ public class ThrowObject : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
 
+        //Se reporduce el sonido
         if(sonidoLanzamiento != null)
         {
             GetComponent<AudioSource>().PlayOneShot(sonidoLanzamiento);
         }
 
+        //Generamos el objeto delante del personaje
         GameObject newBall = Instantiate(objectPrefab, new Vector3(origen.position.x +  distanciaAlCuerpo * Mathf.Sin(origen.rotation.eulerAngles.y * Mathf.Deg2Rad), origen.position.y + alturaDesdeSuelo, origen.position.z + distanciaAlCuerpo * Mathf.Cos(origen.rotation.eulerAngles.y * Mathf.Deg2Rad)), VRCamera.transform.rotation);
-        newBall.transform.Translate(new Vector3(xOffset, 0, 0));
+        
         ballRigidBody = newBall.GetComponent<Rigidbody>();
 
-        // Lanzamiento de la bola hacia donde mira el personaje
+        // Lanzamiento de la bola hacia donde mira la camara
 
         float direccionX = Mathf.Sin(origen.rotation.eulerAngles.y * Mathf.Deg2Rad);
         float direccionZ = Mathf.Cos(origen.rotation.eulerAngles.y * Mathf.Deg2Rad);
-        ballRigidBody.AddForce(thrust * direccionX, 0, thrust * direccionZ, ForceMode.Impulse);
-
+        ballRigidBody.AddRelativeForce(0, 0, thrust, ForceMode.Impulse);
     }
 
+    //Activa o desactiva la capacidad de lanzar el objeto
     public void toggleShooting(){
         ableToThrow = !ableToThrow;
     }
